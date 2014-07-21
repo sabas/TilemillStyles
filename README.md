@@ -10,6 +10,10 @@ TuttoCittOSM
 --------
 Inspired to the TuttoCittà web map ( http://www.tuttocitta.it/ ).
 
+![tuttocittosm](img/tuttocittosm.png)
+
 OpenTouring
 ---------
 Inspired to the Touring Club Italiano Road Atlas.
+
+![OpenTouring](img/OpenTouring.png)
