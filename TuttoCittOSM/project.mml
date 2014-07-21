@@ -1,0 +1,418 @@
+{
+  "bounds": [
+    8.8069,
+    44.3204,
+    9.131,
+    44.4862
+  ],
+  "center": [
+    8.9324,
+    44.4058,
+    15
+  ],
+  "format": "png",
+  "interactivity": false,
+  "minzoom": 0,
+  "maxzoom": 19,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss",
+    "admin.mss",
+    "roads.mss",
+    "labels.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.99999692067183,
+        -85.051,
+        179.99999692067183,
+        83.66933299999998
+      ],
+      "id": "world",
+      "class": "",
+      "Datasource": {
+        "file": "../../data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp",
+        "type": "shape"
+      },
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "world"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.99999692067183,
+        -85.051,
+        179.99999692067183,
+        83.66933299999998
+      ],
+      "id": "coast-poly",
+      "class": "",
+      "Datasource": {
+        "file": "../../data/land-polygons-split-3857/land_polygons.shp",
+        "type": "shape"
+      },
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "coast-poly"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.99999692067183,
+        -84.96651228427099,
+        179.99999692067183,
+        84.96651228427098
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,admin_level\n       from planet_osm_roads\n       where \"boundary\"='administrative'\n         and admin_level in ('0','1','2','3','4')\n       ) as admin_01234",
+        "extent": "-20037508,-19929239,20037508,19929239",
+        "key_field": "",
+        "geometry_field": "way",
+        "dbname": "gis",
+        "extent_cache": "auto",
+        "host": "localhost",
+        "port": "5432",
+        "user": "",
+        "password": "",
+        "id": "admin-01234",
+        "project": "tuttocittOSM",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "admin-01234",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "admin-01234"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.99999692067183,
+        -84.96651228427099,
+        179.99999692067183,
+        84.96651228427098
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,admin_level\n       from planet_osm_roads\n       where \"boundary\"='administrative'\n         and admin_level in ('5','6','7','8')\n       ) as admin_5678",
+        "extent": "-20037508,-19929239,20037508,19929239",
+        "key_field": "",
+        "geometry_field": "way",
+        "dbname": "gis",
+        "extent_cache": "auto",
+        "host": "localhost",
+        "port": "5432",
+        "user": "",
+        "password": ""
+      },
+      "id": "admin-5678",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "admin-5678"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.99999692067183,
+        -84.96651228427099,
+        179.99999692067183,
+        84.96651228427098
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,admin_level\n       from planet_osm_roads\n       where \"boundary\"='administrative'\n         and (admin_level is null or admin_level not in ('0','1','2','3','4','5','6','7','8'))\n       ) as admin_other",
+        "extent": "-20037508,-19929239,20037508,19929239",
+        "key_field": "",
+        "geometry_field": "way",
+        "dbname": "gis",
+        "extent_cache": "auto",
+        "host": "localhost",
+        "port": "5432",
+        "user": "",
+        "password": ""
+      },
+      "id": "admin-other",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "admin-other"
+    },
+    {
+      "extent": [
+        7.444630083145114,
+        43.767216978825026,
+        10.146046949652833,
+        44.742605105108616
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,leisure,area,name\n       from planet_osm_polygon\n       where leisure in ('park','garden')\n       order by z_order) AS leisure",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "828732.43,5429488.86,1129452.78,5581090.54",
+        "dbname": "gis",
+        "host": "localhost",
+        "port": "5432",
+        "user": "",
+        "password": "",
+        "id": "leisurearea",
+        "project": "prove",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "leisurearea",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "leisurearea"
+    },
+    {
+      "extent": [
+        7.444630083145114,
+        43.767216978825,
+        10.145484155127331,
+        44.72843778586173
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way, building  from planet_osm_polygon where building is not null order by z_order,way_area desc) as buildings",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "828732.43,5429488.86,1129390.13,5578870.41",
+        "dbname": "gis",
+        "user": "",
+        "password": "",
+        "host": "localhost",
+        "port": "5432",
+        "id": "buildings",
+        "project": "prove",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "buildings",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "buildings"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        7.4024097139491385,
+        43.74848934649294,
+        10.146238111145294,
+        44.74848343449315
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,highway,tunnel,area,name\n       from planet_osm_polygon\n       where highway in ('motorway','motorway_link','trunk','trunk_link','primary','primary_link','secondary','secondary_link','tertiary','tertiary_link','residential','unclassified','road','service','pedestrian','steps','raceway','living_street') and area='yes'\n       order by z_order) as roads_casing",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "824032.48,5426602.47,1129474.06,5582011.88",
+        "dbname": "gis",
+        "user": "",
+        "password": "",
+        "host": "localhost",
+        "port": "5432",
+        "id": "roadsarea",
+        "project": "prove",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "roadsarea",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "roadsarea"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        8.44400089599402,
+        44.29100349812551,
+        9.1139971335667,
+        44.56099966287134
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,railway,tunnel\n       from planet_osm_line\n       where railway is not null order by z_order) as rail",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "939981.88,5510586.64,1014565.52,5552672.62",
+        "dbname": "gis",
+        "host": "localhost",
+        "port": "5432",
+        "user": "",
+        "password": ""
+      },
+      "id": "railway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "railway"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        7.4024097139491385,
+        43.74848934649294,
+        10.146238111145294,
+        44.74848343449315
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,highway,tunnel,oneway,covered,name\n       from planet_osm_line\n       where highway in ('tertiary','tertiary_link','residential','unclassified','road','service','pedestrian','steps','footway','raceway','living_street')\n       order by z_order) as roads_casing",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "824032.48,5426602.47,1129474.06,5582011.88",
+        "dbname": "gis",
+        "user": "",
+        "password": "",
+        "host": "localhost",
+        "port": "5432",
+        "id": "roads",
+        "project": "prove",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "roads",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "roads"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        8.44400089599402,
+        44.29100349812551,
+        9.1139971335667,
+        44.56099966287134
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,highway,tunnel,oneway,covered,name\n       from planet_osm_line\n       where highway in ('motorway','motorway_link','trunk','trunk_link','primary','primary_link','secondary','secondary_link')\n       order by z_order) as roads_casing",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "939981.88,5510586.64,1014565.52,5552672.62",
+        "dbname": "gis",
+        "host": "localhost",
+        "port": "5432",
+        "user": "",
+        "password": ""
+      },
+      "id": "bigroads",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "bigroads"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        7.402409803780667,
+        43.74848941138565,
+        10.146238200976823,
+        44.74848349829185
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select name,way\n       from planet_osm_line\n       where highway in ('motorway','motorway_link','trunk','trunk_link','primary','primary_link','secondary','secondary_link','tertiary','tertiary_link','residential','unclassified','road','service','pedestrian','steps','footway','raceway','living_street')\n       order by z_order) as roads_label",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "824032.49,5426602.48,1129474.07,5582011.89",
+        "dbname": "gis",
+        "host": "localhost",
+        "port": "5432",
+        "user": "",
+        "password": ""
+      },
+      "id": "roadlabel",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "roadlabel"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        8.44400089599402,
+        44.29100349812551,
+        9.1139971335667,
+        44.56099966287134
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,oneway\n       from planet_osm_line\n       where highway in ('motorway','motorway_link','trunk','trunk_link','primary','primary_link','secondary','secondary_link','tertiary','tertiary_link','residential','unclassified','road','service','pedestrian','steps','footway','raceway','living_street')\n       order by z_order) as roads_casing",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "939981.88,5510586.64,1014565.52,5552672.62",
+        "dbname": "gis",
+        "host": "localhost",
+        "port": "5432",
+        "user": "",
+        "password": ""
+      },
+      "id": "oneway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "oneway"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        8.444089020723391,
+        44.29113441608332,
+        9.113920327609907,
+        44.56095057077967
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, place AS type, name, z_order, population\n  FROM planet_osm_point\n  WHERE place in ('country', 'state', 'city', 'town', 'village', 'hamlet', 'suburb', 'neighbourhood', 'locality')\n  ORDER BY population DESC NULLS LAST\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "939991.69,5510607,1014556.97,5552664.95",
+        "dbname": "gis",
+        "host": "localhost",
+        "port": "5432",
+        "user": "",
+        "password": ""
+      },
+      "id": "place",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "place"
+    }
+  ],
+  "scale": 1,
+  "metatile": 2,
+  "name": "TuttoCittOSM",
+  "description": "Lorem ipsum",
+  "attribution": ""
+}
