@@ -30,7 +30,7 @@
       "id": "simpleland",
       "class": "",
       "Datasource": {
-        "file": "/home/stefano/Documents/MapBox/data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp"
+        "file": "/home/[USER]/Documents/MapBox/data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp"
       },
       "srs-name": "autodetect",
       "srs": "",
@@ -48,12 +48,68 @@
       "id": "land",
       "class": "",
       "Datasource": {
-        "file": "/home/stefano/Documents/MapBox/data/land-polygons-split-3857/land_polygons.shp"
+        "file": "/home/[USER]/Documents/MapBox/data/land-polygons-split-3857/land_polygons.shp"
       },
       "srs-name": "autodetect",
       "srs": "",
       "advanced": {},
       "name": "land"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        8.44400089599402,
+        44.29100349812551,
+        9.1139971335667,
+        44.56099966287134
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM planet_osm_line WHERE waterway IN ('river','stream')) AS water",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "939981.88,5510586.64,1014565.52,5552672.62",
+        "dbname": "[DBNAME]",
+        "host": "localhost",
+        "port": "5432",
+        "user": "[USER]",
+        "password": "[PSW]"
+      },
+      "id": "water",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "water"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        8.444000087510263,
+        44.29105140281486,
+        9.113998660702682,
+        44.5609889099787
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM planet_osm_polygon WHERE \"natural\"='water') AS lakes",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "939981.79,5510594.09,1014565.69,5552670.94",
+        "dbname": "[DBNAME]",
+        "host": "localhost",
+        "port": "5432",
+        "user": "[USER]",
+        "password": "[PSW]"
+      },
+      "id": "lake",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "lake"
     },
     {
       "extent": [
@@ -69,14 +125,11 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "939981.79,5510594.09,1014565.69,5552670.94",
-        "dbname": "gis",
+        "dbname": "[DBNAME]",
         "host": "localhost",
         "port": "5432",
-        "user": "",
-        "password": "",
-        "id": "building",
-        "project": "OpenTouring",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "user": "[USER]",
+        "password": "[PSW]"
       },
       "id": "building",
       "class": "",
@@ -100,11 +153,11 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "939981.88,5510586.64,1014565.52,5552672.62",
-        "dbname": "gis",
+        "dbname": "[DBNAME]",
         "host": "localhost",
         "port": "5432",
-        "user": "",
-        "password": ""
+        "user": "[USER]",
+        "password": "[PSW]"
       },
       "id": "unclassified",
       "class": "",
@@ -128,11 +181,11 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "939981.88,5510586.64,1014565.52,5552672.62",
-        "dbname": "gis",
+        "dbname": "[DBNAME]",
         "host": "localhost",
         "port": "5432",
-        "user": "",
-        "password": ""
+        "user": "[USER]",
+        "password": "[PSW]"
       },
       "id": "tertiary",
       "class": "",
@@ -156,11 +209,14 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "939981.88,5510586.64,1014565.52,5552672.62",
-        "dbname": "gis",
+        "dbname": "[DBNAME]",
         "host": "localhost",
         "port": "5432",
-        "user": "",
-        "password": ""
+        "user": "[USER]",
+        "password": "[PSW]",
+        "id": "primary",
+        "project": "OpenTouring",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "primary",
       "class": "",
@@ -184,11 +240,14 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "939991.69,5510607,1014556.97,5552664.95",
-        "dbname": "gis",
+        "dbname": "[DBNAME]",
         "host": "localhost",
         "port": "5432",
-        "user": "",
-        "password": ""
+        "user": "[USER]",
+        "password": "[PSW]",
+        "id": "peak",
+        "project": "OpenTouring",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "peak",
       "class": "",
@@ -212,11 +271,11 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "939991.69,5510607,1014556.97,5552664.95",
-        "dbname": "gis",
+        "dbname": "[DBNAME]",
         "host": "localhost",
         "port": "5432",
-        "user": "",
-        "password": ""
+        "user": "[USER]",
+        "password": "[PSW]"
       },
       "id": "place",
       "class": "",
@@ -224,6 +283,37 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "place"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        8.44400089599402,
+        44.29100349812551,
+        9.1139971335667,
+        44.56099966287134
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM planet_osm_line WHERE \"railway\"='rail') AS rail",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "939981.88,5510586.64,1014565.52,5552672.62",
+        "dbname": "[DBNAME]",
+        "host": "localhost",
+        "port": "5432",
+        "user": "[USER]",
+        "password": "[PSW]",
+        "id": "rail",
+        "project": "OpenTouring",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "rail",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "rail"
     }
   ],
   "scale": 1,

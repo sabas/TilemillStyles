@@ -19,6 +19,22 @@ Map {
 
 }
 
+#water{
+   line-width: 1;
+  line-color:#3382E4; 
+ }
+
+#lake{
+   line-width: 1;
+  line-color:#3382E4; 
+  polygon-fill:#B6DCFD;
+ }
+
+#rail{
+      line-width: 2;
+      line-color:#aaa; 
+ }
+
 #building{
  polygon-fill: #000; 
 }
@@ -63,6 +79,8 @@ Map {
       line-color:#fff;
     }
   }
+
+
 
 #peak[zoom>12]{
   text-name: [name] + '\n' + [ele];
