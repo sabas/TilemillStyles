@@ -8,12 +8,12 @@ The chosen license is LGPL v3.0, so please if you want to expand these styles co
 
 TuttoCittOSM
 --------
-Inspired to the TuttoCittà web map ( http://www.tuttocitta.it/ ).
+Inspired by the TuttoCittà web map ( http://www.tuttocitta.it/ ).
 
 ![tuttocittosm](img/tuttocittosm.png)
 
 OpenTouring
 ---------
-Inspired to the Touring Club Italiano Road Atlas.
+Inspired by the Touring Club Italiano Road Atlas.
 
 ![OpenTouring](img/OpenTouring.png)
